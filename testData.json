@@ -37,8 +37,6 @@
   ]
 }
 
-{cbfunc({"query":{"count":1,"created":"2013-02-15T15:32:02Z","lang":"en-US","diagnostics":{"publiclyCallable":"true","url":{"execution-start-time":"1","execution-stop-time":"2285","execution-time":"2284","proxy":"DEFAULT","content":"http://app.csskarma.com/api.php?ticker=AAPL"},"user-time":"2285","service-time":"2284","build-version":"33944"},"results":{"json":{"gtm":{"stock":{"symbol":"AAPL","company":"Apple, Inc.","exchange":"NASDAQ","price":"466.5900","sector":"Information Technology","industry":"Computers and Peripherals","caps_rating":"3","scouter_rating":"6","gtm_score":"7","gtm_advice":"Buy & Hold","market_cap":"438917464064.0000","market_cap_msn":"439.50 Bil","avg_volume":"21.49 Mil","month_return":"-3.43","dividend_rate":"10.60","yield":"2.27","de_ratio":"0.00","pe_ratio":"12.0000","forward_pe":"8.87","eps":"44.10","income_growth":"+61.00%","sales_growth":"+44.60%","style":{"Cyclical":"Companies in industries whose performance is tied to the business cycle.","Blue_Chip":"Companies with a market cap greater than 10B, a dividend in excess of the SPY, and an ROE greater than 15%.","Growth":"Companies with a price to book in the top 40%."}}}}}}});
-
 json --> data
 
 data.gtm[0].stock[0].symbol --> "DIS"

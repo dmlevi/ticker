@@ -22,12 +22,13 @@ $(document).ready(function() {
 
         event.preventDefault();
 
-        var link = $(this).attr('href');
+        var link = $(this).attr('href').split('=')[1];
+        var path = 'data.js';
 
-        $.ajax({
-            dataType: "jsonp",
-            url: 'http://app.csskarma.com/api.php' + link
-        });
+        getStockData(path,link);
+
+
+
 
         //$.getJSON('http://app.csskarma.com/api.php?callback=?&' + link, function (data) {
 
@@ -38,8 +39,31 @@ $(document).ready(function() {
        // }); //get json
     }); // click
 
+
 });//dom ready
 
+            var getStockData = function(path,link){
+
+                $.ajax({
+                        dataType: "json",
+                        url:  path,
+                        data: {
+                            'ticker': link
+                        }
+                    }).done(function(data){
+
+                        var ticker = data.gtm[0].stock[0].symbol;
+                        var company = data.gtm[0].stock[0].company;
+                        $('#data-target').empty();
+                        $('#data-target').append('<h1>' + ticker + '</h1>');
+                        $('#data-target').append('<p>' + company + '</p>');
+
+
+                    }).fail( function() {
+                        console.log('error');
+                    });
+
+                }
 
 
 // (function() {
