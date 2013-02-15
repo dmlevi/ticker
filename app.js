@@ -24,13 +24,18 @@ $(document).ready(function() {
 
         var link = $(this).attr('href');
 
-        $.getJSON('http://app.csskarma.com/api.php' + link, function (data) {
+        $.ajax({
+            dataType: "jsonp",
+            url: 'http://app.csskarma.com/api.php' + link
+        });
 
-            var ticker = data.gtm[0].stock[0].symbol;
+        //$.getJSON('http://app.csskarma.com/api.php?callback=?&' + link, function (data) {
 
-            $('#data-target').append(ticker);
+            //var ticker = data.gtm[0].stock[0].symbol;
 
-        }); //get json
+         //   $('#data-target').append(ticker);
+
+       // }); //get json
     }); // click
 
 });//dom ready
