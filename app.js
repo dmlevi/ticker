@@ -18,14 +18,16 @@ $(document).ready(function() {
 
     // $('#data-target').empty();
 
-    $('a').click(function(event){
+    $('.ticker').click(function(event){
 
         event.preventDefault();
 
         var link = $(this).attr('href').split('=')[1];
         var path = 'data.js';
+        var source   = $("#entry-template").html();
+        var template = Handlebars.compile(source);
 
-        getStockData(path,link);
+        getStockData(path,link,source,template);
 
 
 
@@ -42,7 +44,7 @@ $(document).ready(function() {
 
 });//dom ready
 
-            var getStockData = function(path,link){
+            var getStockData = function(path,link, source, template){
 
                 $.ajax({
                         dataType: "json",
@@ -52,11 +54,20 @@ $(document).ready(function() {
                         }
                     }).done(function(data){
 
-                        var ticker = data.gtm[0].stock[0].symbol;
-                        var company = data.gtm[0].stock[0].company;
+                        var stub = data.gtm[0].stock[0];
+
+                        var ticker = stub.symbol;
+                        var company = stub.company;
+                        var pe_ratio = stub.pe_ratio;
+                        var caps_rating = stub.caps_rating;
+                        var eps = stub.eps;
+
                         $('#data-target').empty();
                         $('#data-target').append('<h1>' + ticker + '</h1>');
                         $('#data-target').append('<p>' + company + '</p>');
+                        $('#data-target').append('<p>' + pe_ratio + '</p>');
+                        $('#data-target').append('<p>' + caps_rating + '</p>');
+                        $('#data-target').append('<p>' + eps + '</p>');
 
 
                     }).fail( function() {

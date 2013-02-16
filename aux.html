@@ -9,16 +9,20 @@
             <h1>Get stock data</h1>
             <p><a href="http://google.com">Link to google.com</a></p>
             <ul>
-                <li><a href="?ticker=DIS">Disney</a></li>
-                <li><a href="?ticker=GOOG">Google</a></li>
-                <li><a href="?ticker=AAPL">Apple</a></li>
-                <li><a href="?ticker=S">Sprint</a></li>
-                <li><a href="?ticker=VRNG">Vringo</a></li>
+                <li><a href="?ticker=DIS" class="ticker">Disney</a></li>
+                <li><a href="?ticker=GOOG" class="ticker">Google</a></li>
+                <li><a href="?ticker=AAPL" class="ticker">Apple</a></li>
+                <li><a href="?ticker=S" class="ticker">Sprint</a></li>
+                <li><a href="?ticker=VRNG" class="ticker">Vringo</a></li>
             </ul>
         </div><!--/#link-list-->
         <div id="data-target">
+            <script id="entry-template" type="text/x-handlebars-template">
+  template content
+            </script>
         </div><!--/#data-target-->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script src="app.js"></script>
+        <script src="handlebars.js"></script>
     </body>
 </html>
