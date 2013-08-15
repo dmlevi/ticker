@@ -1,4 +1,4 @@
 ticker
 ======
 
-Toy app working with JSON and templating engines.
+Toy app working with JSON and templating engines...
